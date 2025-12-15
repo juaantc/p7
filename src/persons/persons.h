@@ -2,20 +2,16 @@
 #define PERSONS_H
 
 #include <string>
-
-// 1. Definición de la interfaz IRole
+#include <vector>
+#include <map>
 class IRole{
 
-    private:
-
     public: 
-            // Métodos virtuales puros (interfaz)
             virtual std::string GetRole() = 0;
             virtual std::string GetComment() = 0;
 
 };
 
-// 2. Declaración de la función independiente
 std::string PrintComment(IRole* role);
 class Person{
 
@@ -35,11 +31,12 @@ class Person{
 
 };
 
-class Cyclist:public Person{
+class Cyclist:public Person, public IRole{
 
     private:
             std::string team_;
             std::string cyclist_id_;
+            std::string self_report_;
 
     public:
             Cyclist();
@@ -51,14 +48,19 @@ class Cyclist:public Person{
             void SetTeam(std::string team){team_ = team;};
             void SetCyclistId(std::string cyclist_id){cyclist_id_ = cyclist_id;};
 
+            bool SetComment(std::string self_report);
+            std::string GetRole() override;
+            std::string GetComment() override;
+
 };
 
-class Director:public Person{
+class Director:public Person, public IRole{
 
     private:
             std::string team_;
             std::string uci_license_id_;
             int director_since_;
+            std::string team_report_;
     
     public:
             Director();
@@ -72,12 +74,17 @@ class Director:public Person{
             void SetUciLicenseId(std::string uci_license_id){uci_license_id_ = uci_license_id;};
             void SetDirectorSince(int director_since){director_since_ = director_since;};
 
+            bool SetComment(std::string team_report);
+            std::string GetRole() override;
+            std::string GetComment() override;
+
 };
 
-class Journalist:public Person{
+class Journalist:public Person, public IRole{
 
     private:
             std::string media_;
+            std::map<std::string, std::string> comments_;
 
     public:
             Journalist();
@@ -86,6 +93,10 @@ class Journalist:public Person{
             std::string GetMedia()const {return media_;}
 
             bool SetMedia(std::string media);
+
+            bool SetComment(std::string id, std::string comments);
+            std::string GetRole() override;
+            std::string GetComment() override;
 
 };
 
