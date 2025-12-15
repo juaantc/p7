@@ -3,6 +3,20 @@
 
 #include <string>
 
+// 1. Definición de la interfaz IRole
+class IRole{
+
+    private:
+
+    public: 
+            // Métodos virtuales puros (interfaz)
+            virtual std::string GetRole() = 0;
+            virtual std::string GetComment() = 0;
+
+};
+
+// 2. Declaración de la función independiente
+std::string PrintComment(IRole* role);
 class Person{
 
     private:

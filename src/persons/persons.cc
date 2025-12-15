@@ -55,3 +55,7 @@ bool Journalist::SetMedia(std::string media){
         return true;
     }
 }
+
+std::string PrintComment(IRole* role){
+    return role->GetRole() + role->GetComment();
+}
