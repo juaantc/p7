@@ -39,7 +39,7 @@ add_executable(counter-test counter-test.cc)
 target_link_libraries(counter-test PRIVATE GTest::gtest_main counter)
 gtest_discover_tests(counter-test)
 
-# Testing counter library
+# Testing irole-test.cc
 add_executable(irole-test irole-test.cc)
-target_link_libraries(irole-test PRIVATE GTest::gtest_main irole)
+target_link_libraries(irole-test PRIVATE GTest::gtest_main persons)
 gtest_discover_tests(irole-test)
