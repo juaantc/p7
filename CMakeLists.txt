@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 # Definimos el nombre del proyecto
-project(p6)
+project(p7)
 
 # Estándar C++20 obligatorio
 set(CMAKE_CXX_STANDARD 20)
