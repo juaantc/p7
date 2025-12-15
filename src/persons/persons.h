@@ -29,7 +29,7 @@ class Cyclist:public Person{
 
     public:
             Cyclist();
-            Cyclist(std::string name, int birth_year, std::string team, std::string cyclist_id); /////
+            Cyclist(std::string name, int birth_year, std::string team, std::string cyclist_id);
 
             std::string GetTeam()const {return team_;}
             std::string GetCyclistId()const {return cyclist_id_;}
@@ -57,6 +57,21 @@ class Director:public Person{
             void SetTeam(std::string team){team_ = team;};
             void SetUciLicenseId(std::string uci_license_id){uci_license_id_ = uci_license_id;};
             void SetDirectorSince(int director_since){director_since_ = director_since;};
+
+};
+
+class Journalist:public Person{
+
+    private:
+            std::string media_;
+
+    public:
+            Journalist();
+            Journalist(std::string name, int birth_year, std::string media);
+
+            std::string GetMedia()const {return media_;}
+
+            bool SetMedia(std::string media);
 
 };
 

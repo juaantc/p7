@@ -35,3 +35,23 @@ Director::Director(std::string name, int birth_year, std::string team, std::stri
         uci_license_id_ = uci_license_id;
         director_since_ = director_since;
 }
+
+Journalist::Journalist(){
+    media_ = "UNKNOWN";
+}
+
+Journalist::Journalist(std::string name, int birth_year, std::string media)
+    :Person(name, birth_year){
+
+        media_ = media;
+    }
+
+bool Journalist::SetMedia(std::string media){
+    if(media == " "){
+        media_ = "UNKNOWN";
+        return false;
+    } else {
+        media_ = media;
+        return true;
+    }
+}
