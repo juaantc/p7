@@ -47,7 +47,7 @@ Journalist::Journalist(std::string name, int birth_year, std::string media)
     }
 
 bool Journalist::SetMedia(std::string media){
-    if(media == " "){
+    if(media == ""){
         media_ = "UNKNOWN";
         return false;
     } else {
